@@ -1,26 +1,20 @@
 package com.example.demo.objectMother;
 
 import com.example.demo.modelo.Cabana;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-public class ConcreteListCabanaFactory implements AbstractListFactory<Cabana>{
-    String elements[] ;
-    ArrayList<Cabana> arrayList = new ArrayList<>();
+public class ConcreteListCabanaFactory extends AbstractListFactory<Cabana,String>{
 
-    public ConcreteListCabanaFactory(String[] elements) {
-        this.elements = elements;
+    boolean[] climatizadas;
+
+    public ConcreteListCabanaFactory(String[] elements,boolean[] climatizadas) {
+        super(elements, new ArrayList<Cabana>());
+        this.climatizadas=climatizadas;
     }
 
     @Override
-    public List<Cabana> getList() {
-        for (int i = 0; i < elements.length; i++) {
-            Cabana cabana = new Cabana(elements[i], new Random().nextBoolean());
-            arrayList.add(cabana);
-        }
-        return arrayList;
+    protected Cabana getNextElement(int i) {
+        return new Cabana(elements[i],climatizadas[i]);
     }
 }

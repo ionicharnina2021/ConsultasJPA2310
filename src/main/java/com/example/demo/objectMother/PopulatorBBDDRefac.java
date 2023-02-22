@@ -40,7 +40,8 @@ public class PopulatorBBDDRefac {
 
 
         String cabanasNames[] = {"jara", "cantueso", "oregano", "hierbuena", "cilantro"};
-        List<Cabana> cabanas = populate(cabanaRepository, new ConcreteListCabanaFactory(cabanasNames));
+        boolean[] cabanasClimatizadas={true,true,false,true,false};
+        List<Cabana> cabanas = populate(cabanaRepository, new ConcreteListCabanaFactory(cabanasNames,cabanasClimatizadas));
 
         String gruposNames[] = {"Exploradores", "Aventureros", "Salvajes", "Valientes", "Aguerridos"};
         String gruposturnos[] = {"diurno", "nocturno", "vespertino"};
