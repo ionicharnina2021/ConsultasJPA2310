@@ -1,9 +1,8 @@
-package com.example.demo.objectMother;
+package com.example.demo.ListFactory;
 
 import com.example.demo.modelo.Eso;
 import com.example.demo.modelo.Grupo;
 import com.example.demo.modelo.Tienda;
-import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class ConcreteListESOFactory extends AbstractListFactory<Eso,String> {
     List<Grupo> grupos;
 
     public ConcreteListESOFactory(String[] elements, int edadMaxima, int edadMinima, List<Tienda> alojamiento, List<Grupo> grupos) {
-       super(elements,new ArrayList<>(Eso));
+       super(elements,new ArrayList<Eso>());
         this.edadMaxima = edadMaxima;
         this.edadMinima = edadMinima;
         this.alojamiento = alojamiento;
@@ -26,6 +25,6 @@ public class ConcreteListESOFactory extends AbstractListFactory<Eso,String> {
 
     @Override
     protected Eso getNextElement(int i) {
-        return new Eso(elements[i],edadMaxima,edadMinima,grupos);
+        return new Eso(elements[i], new Random().nextInt(edadMaxima - edadMinima) + edadMinima, grupos.get(i % grupos.size()), alojamiento.get(i % alojamiento.size()));
     }
 }

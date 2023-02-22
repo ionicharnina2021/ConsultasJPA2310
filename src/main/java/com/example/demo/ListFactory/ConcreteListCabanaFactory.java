@@ -1,4 +1,4 @@
-package com.example.demo.objectMother;
+package com.example.demo.ListFactory;
 
 import com.example.demo.modelo.Cabana;
 

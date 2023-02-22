@@ -1,4 +1,4 @@
-package com.example.demo.objectMother;
+package com.example.demo.ListFactory;
 
 import com.example.demo.modelo.Actividad;
 import com.example.demo.modelo.ActividadGrupoMonitor;
@@ -8,12 +8,14 @@ import com.example.demo.modelo.Monitor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConcreteListCalendarioFactory implements AbstractListFactory<ActividadGrupoMonitor> {
+public class ConcreteListCalendarioFactory extends AbstractListFactory<ActividadGrupoMonitor,Actividad> {
     ArrayList<ActividadGrupoMonitor> lista = new ArrayList<>();
 
     List<Actividad> actividads; List<Grupo> grupos; List<Monitor> monitors;
+    int j=0;
 
     public ConcreteListCalendarioFactory(List<Actividad> actividads, List<Grupo> grupos, List<Monitor> monitors) {
+        super(new ArrayList<ActividadGrupoMonitor>());
         this.actividads = actividads;
         this.grupos = grupos;
         this.monitors = monitors;
