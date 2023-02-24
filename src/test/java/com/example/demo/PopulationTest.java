@@ -7,8 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class PopulationTest {
-    @Autowired
-    PopulatorBBDD populatorBBDD;
+//    @Autowired
+//    PopulatorBBDD populatorBBDD;
 
     @Test
     void test() {

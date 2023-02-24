@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 
-@Service
+//@Service
 public class PopulatorBBDDold {
     private final ActividadRepository actividadRepository;
     private final CabanaRepository cabanaRepository;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Service
+//@Service
 public class PopulatorBBDD {
     private final ActividadRepository actividadRepository;
     private final CabanaRepository cabanaRepository;
