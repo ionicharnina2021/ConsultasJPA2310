@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface CabanaRepository extends CrudRepository<Cabana, Long> {
 //cabanas que estan climatizadas o no
-    public Optional<Iterable<Cabana>> findAllByClimatizadaIs(boolean climatizada);
+    public Iterable<Cabana> findAllByClimatizadaIs(boolean climatizada);
 }

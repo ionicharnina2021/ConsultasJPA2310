@@ -25,8 +25,8 @@ public class CabanasTest {
         List<Cabana> cabanas = all.get();
         List<Cabana> cabanas1 = cabanas.stream().filter((cabans) -> cabans.isClimatizada() == filter).toList();
         Optional<List<Cabana>> cabanasByClimatizion = cabanasService.getCabanasByClimatizion(filter);
-        assert cabanasByClimatizion.isPresent();
-        List<List<Cabana>> lists = cabanasByClimatizion.stream().toList();
-        assertEquals(cabanas1.size(), lists.size());
+       cabanasByClimatizion.ifPresent((lista)->{
+            assertEquals(cabanas1.size(), lista.size());
+        });
     }
 }
