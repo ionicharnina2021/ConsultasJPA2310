@@ -6,10 +6,12 @@ import com.example.demo.repositorios.EsoRepository;
 import com.example.demo.repositorios.NinoRepository;
 import com.example.demo.repositorios.PrimariaREpository;
 import com.example.demo.utiles.Iterable2ListMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class NinoService {
 
     private final NinoRepository ninoRepository;
@@ -28,5 +30,9 @@ public class NinoService {
     }
     public Optional<List<Primaria>> findAllPrimaria(){
         return new Iterable2ListMapper<Primaria>().map(primariaREpository.findAll());
+    }
+
+    public Optional<List<Nino>> getByEdadBetween(int younger,int older){
+       return new Iterable2ListMapper<Nino>().map(ninoRepository.findAllByEdadBetween(younger, older));
     }
 }

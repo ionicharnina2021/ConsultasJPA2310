@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.modelo.Cabana;
 import com.example.demo.services.CabanasService;
+import com.example.demo.services.NinoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +17,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CabanasTest {
     @Autowired
     CabanasService cabanasService;
+    @Autowired
+    NinoService ninoService;
 
     @Test
     void test(){
@@ -28,5 +31,10 @@ public class CabanasTest {
        cabanasByClimatizion.ifPresent((lista)->{
             assertEquals(cabanas1.size(), lista.size());
         });
+    }
+    @Test
+    void testChildrenBetween5And12YearsOld(){
+        int younger=5,older=12;
+        ninoService.getByEdadBetween(younger,older);
     }
 }
